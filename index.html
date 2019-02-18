@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/jpg" href="./images/james_favicon.jpg" />
+    <title>James's Calculator</title>
+    <!--<link href=“https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css” rel=“stylesheet” type=“text/css” />-->
+    <!--<meta name="viewport"-->
+    <!--content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="main.js" type="text/javascript"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"
+          type="text/css"/>
+    <style type="text/css">
+        body {
+            height: 100vh;
+            margin: 0;
+            font-size: 0;
+        }
+
+        .calcBody {
+            height: 80%;
+            background-color: darkslategrey;
+            position: absolute;
+            top: 10%;
+        }
+
+        .display_section {
+            height: 20%;
+            background-color: darkslategrey;
+            overflow: hidden;
+        }
+
+        .display_section h1 {
+            color: white;
+            margin-top: 3%;
+        }
+
+        .screen_margin_adjuster {
+            height: 90%;
+            width: 100%;
+            bottom: 0;
+            position: absolute;
+        }
+
+        .display_screen {
+            background-color: black;
+            height: 100%;
+        }
+
+        .screen_highlight {
+            background-color: skyblue;
+            height: 10%;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .main_button_section {
+            height: 80%;
+            background-color: darkslategrey;
+        }
+
+        .main_buttons_margin_adjuster {
+            height: 97%;
+            width: 100%;
+            background-color: darkslategrey;
+            bottom: 0;
+            position: absolute;
+        }
+
+        .number_button_section, .operator_button_section {
+            height: 100%;
+        }
+
+        .number_button_section {
+            width: 80%;
+            display: inline-block;
+            left: 0;
+            position: absolute;
+        }
+
+        .operator_button_section {
+            background-color: red;
+            width: 20%;
+            display: inline-block;
+            right: 0;
+            position: absolute;
+
+        }
+
+        .clear {
+            height: 20%;
+            background-color: mediumpurple;
+        }
+
+        .clear span {
+            font-size: 4rem;
+            color: white;
+        }
+
+        .clear_button_horizontal_margin {
+            width: 7%;
+            height: 100%;
+            right: 0;
+            position: absolute;
+            background-color: darkslategrey;
+        }
+
+        .clear_button_vertical_margin {
+            width: 100%;
+            height: 10%;
+            left: 0;
+            bottom: 0;
+            position: absolute;
+            background-color: darkslategrey;
+        }
+
+        .number {
+            height: 20%;
+            background-color: lightgrey;
+        }
+
+        .number span {
+            font-size: 4rem;
+        }
+
+        .clear_button_horizontal_margin {
+            width: 10%;
+            height: 100%;
+            right: 0;
+            position: absolute;
+            background-color: darkslategrey;
+        }
+
+        .clear_button_vertical_margin {
+            width: 100%;
+            height: 14%;
+            left: 0;
+            bottom: 0;
+            position: absolute;
+            background-color: darkslategrey;
+        }
+
+        .operator {
+            height: 20%;
+            background-color: lightsalmon;
+        }
+
+        .operator_big_button {
+            height: 40%;
+            background-color: darkorange;
+        }
+
+        .operator_big_button_vertical_margin {
+            height: 7%;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background-color: darkslategrey;
+        }
+
+        .operator span {
+            font-size: 5rem;
+            color: white;
+        }
+
+        .operator_big_button span {
+            font-size: 5rem;
+            color: white;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container calcBody col-xs-12 col-md-4 col-md-offset-4">
+    <div class="display_section col-xs-12">
+        <div class="row screen_margin_adjuster">
+            <div class="display_screen col-xs-12">
+                <h1>Ready</h1>
+                <div class="screen_highlight"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main_button_section col-xs-12">
+        <div class="row main_buttons_margin_adjuster">
+            <div class="number_button_section">
+                <div class="clear button col-xs-6" data-keycode="27">
+                    <div class="clear_button_horizontal_margin"></div>
+                    <div class="clear_button_vertical_margin"></div>
+                    <span>C</span>
+                </div>
+                <div class="clear button col-xs-6" data-keycode="67">
+                    <div class="clear_button_horizontal_margin"></div>
+                    <div class="clear_button_vertical_margin"></div>
+                    <span>CE</span>
+                </div>
+                <div class="number button col-xs-4" data-keycode="103">
+                    <div class="clear_button_horizontal_margin"></div>
+                    <div class="clear_button_vertical_margin"></div>
+                    <span>7</span>
+                </div>
+                <div class="number button col-xs-4" data-keycode="104">
+                    <div class="clear_button_horizontal_margin"></div>
+                    <div class="clear_button_vertical_margin"></div>
+                    <span>8</span>
+                </div>
+                <div class="number button col-xs-4" data-keycode="105">
+                    <div class="clear_button_horizontal_margin"></div>
+                    <div class="clear_button_vertical_margin"></div>
+                    <span>9</span>
+                </div>
+                <div class="number button col-xs-4" data-keycode="100">
+                    <div class="clear_button_horizontal_margin"></div>
+                    <div class="clear_button_vertical_margin"></div>
+                    <span>4</span>
+                </div>
+                <div class="number button col-xs-4" data-keycode="101">
+                    <div class="clear_button_horizontal_margin"></div>
+                    <div class="clear_button_vertical_margin"></div>
+                    <span>5</span>
+                </div>
+                <div class="number button col-xs-4" data-keycode="102">
+                    <div class="clear_button_horizontal_margin"></div>
+                    <div class="clear_button_vertical_margin"></div>
+                    <span>6</span>
+                </div>
+                <div class="number button col-xs-4" data-keycode="97">
+                    <div class="clear_button_horizontal_margin"></div>
+                    <div class="clear_button_vertical_margin"></div>
+                    <span>1</span>
+                </div>
+                <div class="number button col-xs-4" data-keycode="98">
+                    <div class="clear_button_horizontal_margin"></div>
+                    <div class="clear_button_vertical_margin"></div>
+                    <span>2</span>
+                </div>
+                <div class="number button col-xs-4" data-keycode="99">
+                    <div class="clear_button_horizontal_margin"></div>
+                    <div class="clear_button_vertical_margin"></div>
+                    <span>3</span>
+                </div>
+                <div class="number button col-xs-4" data-keycode="96">
+                    <div class="clear_button_horizontal_margin"></div>
+                    <div class="clear_button_vertical_margin"></div>
+                    <span>0</span>
+                </div>
+                <div class="number button col-xs-4" data-keycode="110">
+                    <div class="clear_button_horizontal_margin"></div>
+                    <div class="clear_button_vertical_margin"></div>
+                    <span>.</span>
+                </div>
+                <div class="number button col-xs-4" data-keycode="187">
+                    <div class="clear_button_horizontal_margin"></div>
+                    <div class="clear_button_vertical_margin"></div>
+                    <span>=</span>
+                </div>
+            </div>
+            <div class="operator_button_section">
+                <div class="operator button col-xs-12" data-keycode="111">
+                    <div class="clear_button_vertical_margin"></div>
+                    <span>÷</span>
+                </div>
+                <div class="operator button col-xs-12" data-keycode="106">
+                    <div class="clear_button_vertical_margin"></div>
+                    <span>×</span>
+                </div>
+                <div class="operator button col-xs-12" data-keycode="109">
+                    <div class="clear_button_vertical_margin"></div>
+                    <span>-</span>
+                </div>
+                <div class="operator_big_button button col-xs-12" data-keycode="107">
+                    <div class="operator_big_button_vertical_margin"></div>
+                    <span>+</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
